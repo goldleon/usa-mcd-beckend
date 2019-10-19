@@ -4,7 +4,9 @@ import dotenv from "dotenv";
 import { setGlobalMiddleware } from "./api/middlewares/globalMiddleware";
 
 // Setup the ENV vars
-dotenv.config();
+if (process.env.NODE_ENV === "development") {
+    dotenv.config();
+}
 
 const app = express();
 
