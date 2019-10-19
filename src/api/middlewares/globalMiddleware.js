@@ -12,7 +12,9 @@ export const setGlobalMiddleware = app => {
     }));
 
     app.use(express.json());
-    app.use(morgan('dev'))
+    if (process.env.NODE_ENV === "development") {
+        app.use(morgan('dev'))
+    }
     app.use(helmet());
     app.use(cors());
 
